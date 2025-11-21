@@ -5,6 +5,7 @@ import { Link } from "react-router";
 export default function CheckOutPage() {
   return (
     <>
+      <link rel="icon" href="images/cart-favicon.png" />
       <title>Checkout</title>
       <CheckoutHeader />
 

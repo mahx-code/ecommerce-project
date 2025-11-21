@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage.jsx";
 import CheckOutPage from "./pages/CheckOutPage.jsx";
 import OrderPage from "./pages/OrderPage.jsx";
 import TrackingPage from "./pages/TrackingPage.jsx";
+import NotFoundPage from "./pages/404Page.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="order" element={<OrderPage />} />
         <Route path="tracking" element={<TrackingPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

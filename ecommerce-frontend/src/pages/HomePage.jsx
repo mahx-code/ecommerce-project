@@ -1,9 +1,23 @@
 import "./HomePage.css";
+import { useState, useEffect } from "react"; 
+import axios from 'axios';
 import { Link } from "react-router";
 import Header from "../components/Header.jsx";
-import { products } from "../../starting-code/ecommerce-project-main/data/products.js";
+// import { products } from "../../starting-code/ecommerce-project-main/data/products.js";
 
 export default function HomePage() {
+  const [products, setProducts] = useState([]);
+  useEffect(
+    () => {
+      axios.get("http://localhost:3000/api/products")
+        .then((response) => {
+          console.log(response.data);
+          setProducts(response.data);
+      });
+    }, []
+  );
+
+
   return (
     <>
       <link rel="icon" href="images/home-favicon.png" />

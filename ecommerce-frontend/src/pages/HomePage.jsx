@@ -7,13 +7,23 @@ import Header from "../components/Header.jsx";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   useEffect(
     () => {
       axios.get("http://localhost:3000/api/products")
         .then((response) => {
           console.log(response.data);
           setProducts(response.data);
-      });
+        });
+      
+      
+      axios.get('http://localhost:3000/api/cart-items').then(
+        (response) => {
+          setCart(response.data);
+          console.log("Cart data:", response.data);
+        }
+      )
+      
     }, []
   );
 
@@ -21,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       <link rel="icon" href="images/home-favicon.png" />
-      <Header />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">

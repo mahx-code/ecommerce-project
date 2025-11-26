@@ -2,7 +2,7 @@ import "./CheckOutPage.css";
 import CheckoutHeader from "./checkout/CheckoutHeader";
 import { Link } from "react-router";
 
-export default function CheckOutPage() {
+export default function CheckOutPage( { cart }) {
   return (
     <>
       <link rel="icon" href="images/cart-favicon.png" />

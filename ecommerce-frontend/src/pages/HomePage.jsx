@@ -5,9 +5,9 @@ import { Link } from "react-router";
 import Header from "../components/Header.jsx";
 // import { products } from "../../starting-code/ecommerce-project-main/data/products.js";
 
-export default function HomePage() {
+export default function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  
   useEffect(
     () => {
       axios.get("api/products")
@@ -16,13 +16,6 @@ export default function HomePage() {
           setProducts(response.data);
         });
       
-      
-      axios.get('api/cart-items').then(
-        (response) => {
-          setCart(response.data);
-          console.log("Cart data:", response.data);
-        }
-      )
       
     }, []
   );

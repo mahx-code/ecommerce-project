@@ -1,25 +1,20 @@
 import "./HomePage.css";
-import { useState, useEffect } from "react"; 
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router";
 import Header from "../components/Header.jsx";
+import { formatMoney } from '../utils/money.js'
 // import { products } from "../../starting-code/ecommerce-project-main/data/products.js";
 
 export default function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  
-  useEffect(
-    () => {
-      axios.get("api/products")
-        .then((response) => {
-          console.log(response.data);
-          setProducts(response.data);
-        });
-      
-      
-    }, []
-  );
 
+  useEffect(() => {
+    axios.get("api/products").then((response) => {
+      console.log(response.data);
+      setProducts(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -28,16 +23,11 @@ export default function HomePage({ cart }) {
 
       <div className="home-page">
         <div className="products-grid">
-
-          
           {products.map((product) => {
             return (
               <div className="product-container" key={product.id}>
                 <div className="product-image-container">
-                  <img
-                    className="product-image"
-                    src={product.image}
-                  />
+                  <img className="product-image" src={product.image} />
                 </div>
 
                 <div className="product-name limit-text-to-2-lines">
@@ -47,12 +37,18 @@ export default function HomePage({ cart }) {
                 <div className="product-rating-container">
                   <img
                     className="product-rating-stars"
-                    src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+                    src={`images/ratings/rating-${
+                      product.rating.stars * 10
+                    }.png`}
                   />
-                  <div className="product-rating-count link-primary">{ product.rating.count }</div>
+                  <div className="product-rating-count link-primary">
+                    {product.rating.count}
+                  </div>
                 </div>
 
-                <div className="product-price">${ (product.priceCents / 100).toFixed(2) }</div>
+                <div className="product-price">
+                  {formatMoney(product.priceCents)}
+                </div>
 
                 <div className="product-quantity-container">
                   <select>
@@ -82,8 +78,6 @@ export default function HomePage({ cart }) {
               </div>
             );
           })}
-
-          
         </div>
       </div>
     </>

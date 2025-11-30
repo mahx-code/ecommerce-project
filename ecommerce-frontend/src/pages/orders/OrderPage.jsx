@@ -3,9 +3,9 @@ import { useState, useEffect, Fragment } from "react";
 import "./OrderPage.css";
 import dayjs from "dayjs";
 import { Link } from "react-router";
-import Header from "../components/Header.jsx";
+import Header from "../../components/Header.jsx";
 import buyAgainIcon from "../assets/images/icons/buy-again.png";
-import { formatMoney } from "../utils/money.js";
+import { formatMoney } from "../../utils/money.js";
 
 export default function OrderPage({ cart }) {
   const [orders, setOrders] = useState([]);
@@ -64,9 +64,14 @@ export default function OrderPage({ cart }) {
                             {orderProduct.product?.name}
                           </div>
                           <div className="product-delivery-date">
-                            Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format("MMMM D")}
+                            Arriving on:{" "}
+                            {dayjs(orderProduct.estimatedDeliveryTimeMs).format(
+                              "MMMM D"
+                            )}
                           </div>
-                          <div className="product-quantity">Quantity: { orderProduct.quantity }</div>
+                          <div className="product-quantity">
+                            Quantity: {orderProduct.quantity}
+                          </div>
                           <button className="buy-again-button button-primary">
                             <img
                               className="buy-again-icon"
@@ -93,8 +98,6 @@ export default function OrderPage({ cart }) {
               </div>
             );
           })}
-
-          
         </div>
       </div>
     </>

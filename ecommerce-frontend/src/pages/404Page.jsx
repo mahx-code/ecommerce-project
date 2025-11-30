@@ -1,4 +1,4 @@
-import "./CheckOutPage.css";
+import "./checkout/CheckOutPage.css";
 import Header from "../components/Header";
 import { Link } from "react-router";
 

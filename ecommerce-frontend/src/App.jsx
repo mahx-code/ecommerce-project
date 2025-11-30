@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import HomePage from "./pages/home/HomePage.jsx";
 import CheckOutPage from "./pages/checkout/CheckOutPage.jsx";
-import OrderPage from "./pages/OrderPage.jsx";
+import OrderPage from "./pages/orders/OrderPage.jsx";
 import TrackingPage from "./pages/TrackingPage.jsx";
 import NotFoundPage from "./pages/404Page.jsx";
 import axios from "axios";

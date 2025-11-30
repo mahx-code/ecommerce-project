@@ -53,7 +53,7 @@ export default function OrderPage({ cart }) {
                     return (
                       <Fragment key={orderProduct.productId}>
                         <div className="product-image-container">
-                          <img src={orderProduct.image} />
+                          <img src={orderProduct.product.image} />
                         </div>
 
                         <div className="product-details">

@@ -7,14 +7,26 @@ export const defaultOrders = [
       {
         productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
         quantity: 1,
-        estimatedDeliveryTimeMs: 1723716000000
+        estimatedDeliveryTimeMs: 1723716000000,
+        product: {
+          id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+          image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+          name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+          priceCents: 1090,
+        },
       },
       {
         productId: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
         quantity: 2,
-        estimatedDeliveryTimeMs: 1723456800000
-      }
-    ]
+        estimatedDeliveryTimeMs: 1723456800000,
+        product: {
+          id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+          image: "images/products/intermediate-composite-basketball.jpg",
+          name: "Intermediate Size Basketball",
+          priceCents: 2095,
+        },
+      },
+    ],
   },
   {
     id: "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
@@ -24,8 +36,14 @@ export const defaultOrders = [
       {
         productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
         quantity: 2,
-        estimatedDeliveryTimeMs: 1718618400000
-      }
-    ]
-  }
+        estimatedDeliveryTimeMs: 1718618400000,
+        product: {
+          id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+          image: "images/products/adults-plain-cotton-tshirt.jpg",
+          name: "Adults Plain Cotton T-Shirt",
+          priceCents: 799,
+        },
+      },
+    ],
+  },
 ];

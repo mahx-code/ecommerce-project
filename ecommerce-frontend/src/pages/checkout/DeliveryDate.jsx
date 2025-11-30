@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-export default function DeliveryDate({deliveryOptions, cartItem, selectedDeliveryOption}) {
+export default function DeliveryDate({ selectedDeliveryOption}) {
     
   return (
       <>

@@ -1,7 +1,7 @@
 import "./CheckOutPage.css";
-import CheckoutHeader from "./checkout/CheckoutHeader";
+import CheckoutHeader from "./CheckoutHeader";
 import { Link } from "react-router";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 import axios from "axios";
 import dayjs from "dayjs";
 
@@ -143,32 +143,44 @@ export default function CheckOutPage({ cart, setCart }) {
                 Items ({paymentSummary ? paymentSummary.totalItems : 0}):
               </div>
               <div className="payment-summary-money">
-                {formatMoney(paymentSummary ? paymentSummary.productCostCents : 0)}
+                {formatMoney(
+                  paymentSummary ? paymentSummary.productCostCents : 0
+                )}
               </div>
             </div>
 
             <div className="payment-summary-row">
               <div>Shipping &amp; handling:</div>
               <div className="payment-summary-money">
-                {formatMoney(paymentSummary ? paymentSummary.shippingCostCents : 0)}
+                {formatMoney(
+                  paymentSummary ? paymentSummary.shippingCostCents : 0
+                )}
               </div>
             </div>
 
             <div className="payment-summary-row subtotal-row">
               <div>Total before tax:</div>
               <div className="payment-summary-money">
-                {formatMoney(paymentSummary ? paymentSummary.totalCostBeforeTaxCents : 0)}
+                {formatMoney(
+                  paymentSummary ? paymentSummary.totalCostBeforeTaxCents : 0
+                )}
               </div>
             </div>
 
             <div className="payment-summary-row">
               <div>Estimated tax (10%):</div>
-              <div className="payment-summary-money">{ formatMoney(paymentSummary ? paymentSummary.taxCents : 0) }</div>
+              <div className="payment-summary-money">
+                {formatMoney(paymentSummary ? paymentSummary.taxCents : 0)}
+              </div>
             </div>
 
             <div className="payment-summary-row total-row">
               <div>Order total:</div>
-              <div className="payment-summary-money">{ formatMoney(paymentSummary ? paymentSummary.totalCostCents : 0) }</div>
+              <div className="payment-summary-money">
+                {formatMoney(
+                  paymentSummary ? paymentSummary.totalCostCents : 0
+                )}
+              </div>
             </div>
 
             <button className="place-order-button button-primary">

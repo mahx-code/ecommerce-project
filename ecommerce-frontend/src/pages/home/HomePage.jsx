@@ -6,7 +6,7 @@ import Header from "../../components/Header.jsx";
 import ProductsGrid from "./ProductsGrid.jsx";
 // import { products } from "../../starting-code/ecommerce-project-main/data/products.js";
 
-export default function HomePage({ cart }) {
+export default function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function HomePage({ cart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductsGrid products={products} />
+        <ProductsGrid products={products} loadCart={loadCart} />
       </div>
     </>
   );

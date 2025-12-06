@@ -8,14 +8,15 @@ import TrackingPage from "./pages/TrackingPage.jsx";
 import NotFoundPage from "./pages/404Page.jsx";
 import axios from "axios";
 
+
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    const getCartData = async () => {
+    const FetchAppData = async () => {
       const response = await axios.get("api/cart-items?expand=product");
       setCart(response.data);
     };
-    getCartData();
+    FetchAppData();
   }, []);
   return (
     <>
@@ -26,8 +27,8 @@ function App() {
           element={<CheckOutPage cart={cart} setCart={setCart} />}
         />
         <Route path="order" element={<OrderPage cart={cart} />} />
-        <Route path="tracking" element={<TrackingPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />} />
+        <Route path="*" element={<NotFoundPage cart={cart} />} />
       </Routes>
     </>
   );

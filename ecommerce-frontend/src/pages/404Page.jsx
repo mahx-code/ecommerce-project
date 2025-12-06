@@ -2,11 +2,11 @@ import "./checkout/CheckOutPage.css";
 import Header from "../components/Header";
 import { Link } from "react-router";
 
-export default function NotFoundPage() {
+export default function NotFoundPage({ cart }) {
   return (
     <>
       <title>404 Not Found</title>
-          <Header />
+          <Header cart={cart} />
           
         <div className="not-found-page">
           <h1>404 - Page Not Found</h1>

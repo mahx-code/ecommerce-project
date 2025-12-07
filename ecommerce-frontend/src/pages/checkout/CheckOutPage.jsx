@@ -21,7 +21,7 @@ export default function CheckOutPage({ cart, setCart, loadCart }) {
     axios.get("api/payment-summary").then((response) => {
       setPaymentSummary(response.data);
     });
-  }, []);
+  }, [cart]);
   return (
     <>
       <link rel="icon" href="images/cart-favicon.png" />

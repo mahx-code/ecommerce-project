@@ -7,7 +7,7 @@ import PaymentSummary from "./PaymentSummary";
 
 import { useState, useEffect } from "react";
 
-export default function CheckOutPage({ cart, setCart }) {
+export default function CheckOutPage({ cart, setCart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
@@ -26,7 +26,7 @@ export default function CheckOutPage({ cart, setCart }) {
     <>
       <link rel="icon" href="images/cart-favicon.png" />
       <title>Checkout</title>
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
@@ -36,6 +36,7 @@ export default function CheckOutPage({ cart, setCart }) {
             cart={cart}
             deliveryOptions={deliveryOptions}
             setCart={setCart}
+            loadCart={loadCart}
           />
 
           <PaymentSummary paymentSummary={paymentSummary} />

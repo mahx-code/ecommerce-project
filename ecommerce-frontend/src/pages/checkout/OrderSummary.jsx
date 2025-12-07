@@ -3,11 +3,12 @@ import CartItemDetails from "./CartItemDetails.jsx";
 import DeliveryOptions from "./DeliveryOptions.jsx";
 import DeliveryDate from "./DeliveryDate.jsx";
 
-export default function OrderSummary({ cart, deliveryOptions, setCart }) {
+export default function OrderSummary({ cart, deliveryOptions, setCart, loadCart }) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
         cart.map((cartItem) => {
+          if (cartItem.quantity === 0) {return null;}
           const selectedDeliveryOption = deliveryOptions.find(
             (deliveryOption) => {
               return deliveryOption.id === cartItem.deliveryOptionId;
@@ -26,6 +27,7 @@ export default function OrderSummary({ cart, deliveryOptions, setCart }) {
                   cart={cart}
                   cartItem={cartItem}
                   selectedDeliveryOption={selectedDeliveryOption}
+                  loadCart={loadCart}
                 />
               </div>
             </div>

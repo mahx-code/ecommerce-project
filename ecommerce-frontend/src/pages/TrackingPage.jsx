@@ -57,7 +57,8 @@ export default function TrackingPage({ cart }) {
 
           <img
             className="product-image"
-            src="images/products/athletic-cotton-socks-6-pairs.jpg"
+            src={'/'+orderProduct.product.image}
+            alt={productDetails.name}
           />
 
           <div className="progress-labels-container">

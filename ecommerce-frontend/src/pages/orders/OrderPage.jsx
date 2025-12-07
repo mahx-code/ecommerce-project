@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import Header from "../../components/Header.jsx";
 import OrdersGrid from "./OrdersGrid.jsx";
 
-export default function OrderPage({ cart }) {
+export default function OrderPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function OrderPage({ cart }) {
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
 
-        <OrdersGrid orders={orders} />
+        <OrdersGrid orders={orders} loadCart={loadCart} />
       </div>
     </>
   );

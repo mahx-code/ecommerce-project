@@ -26,17 +26,29 @@ export default function CartItemDetails({
                 onChange={(event) => {
                   setQuantity(Number(event.target.value));
                 }}
-                onKeyDown={
-                  (event) => {
-                    if (event.key === "Enter") {
-                      setQuantity(Number(event.target.value));
-                    } else if (event.key === "Escape") {
-                      setQuantity(cartItem.quantity);
-                      setIsUpdating(false);
-
-                    }
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setQuantity(Number(event.target.value));
+                     const setTheQuantity = async () => {
+                      if (isUpdating === false) {
+                        setIsUpdating(true);
+                      } else {
+                        await axios.put(
+                          `/api/cart-items/${cartItem.productId}`,
+                          {
+                            quantity,
+                          }
+                        );
+                        setIsUpdating(false);
+                        await loadCart();
+                      }
+                    };
+                    setTheQuantity();
+                  } else if (event.key === "Escape") {
+                    setQuantity(cartItem.quantity);
+                    setIsUpdating(false);
                   }
-                }
+                }}
                 value={quantity}
                 type="text"
                 style={{ width: "50px", marginLeft: "5px", marginRight: "5px" }}

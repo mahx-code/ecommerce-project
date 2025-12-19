@@ -24,7 +24,7 @@ export default function Product({ product, loadCart }) {
     console.log("Quantity selected:", quantitySelected);
   };
   return (
-    <div className="product-container">
+    <div className="product-container" data-testid="product-container">
       <div className="product-image-container">
         <img data-testid="product-image" className="product-image" src={product.image} />
       </div>

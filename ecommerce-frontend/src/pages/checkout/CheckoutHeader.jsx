@@ -1,4 +1,4 @@
-import "./CheckOutHeader.css";
+import "./CheckoutHeader.css";
 import { Link } from "react-router";
 import logo from "../../assets/images/logo.png";
 import mobileLogo from "../../assets/images/mobile-logo.png";

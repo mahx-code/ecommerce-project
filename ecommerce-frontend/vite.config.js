@@ -7,12 +7,10 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target:
-          "ecommerce-project-backend-bmd2k33vw-mahx-codes-projects.vercel.app",
+        target: "ecommerce-project-backend-omega.vercel.app",
       },
       "/images": {
-        target:
-          "ecommerce-project-backend-bmd2k33vw-mahx-codes-projects.vercel.app",
+        target: "ecommerce-project-backend-omega.vercel.app",
       },
     },
   },

@@ -7,10 +7,10 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "ecommerce-project-backend-omega.vercel.app",
+        target: "https://ecommerce-project-backend-omega.vercel.app",
       },
       "/images": {
-        target: "ecommerce-project-backend-omega.vercel.app",
+        target: "https://ecommerce-project-backend-omega.vercel.app",
       },
     },
   },

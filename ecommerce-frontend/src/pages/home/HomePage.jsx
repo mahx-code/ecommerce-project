@@ -33,7 +33,7 @@ export default function HomePage({ cart, loadCart }) {
       <Header cart={cart} search={search} />
 
       <div className="home-page">
-        <ProductsGrid products={products} loadCart={loadCart} />
+        <ProductsGrid data-testid="productContainers" products={products} loadCart={loadCart} />
       </div>
     </>
   );

@@ -10,4 +10,12 @@ describe('formatMoney', () => {
       expect(formatMoney(1090)).toBe("$10.90");
       expect(formatMoney(100)).toBe("$1.00");
     });
+  it("handles zero cents", () => {
+      expect(formatMoney(0)).toBe("$0.00")
+  })
+  
+  it("handles negative cents", () => {
+    expect(formatMoney(-999)).toBe("-$9.99");
+    expect(formatMoney(-100)).toBe("-$1.00");
+  })
 })

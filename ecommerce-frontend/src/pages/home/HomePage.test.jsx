@@ -10,6 +10,7 @@ vi.mock("axios");
 
 describe("HomePage Component", () => {
   let loadCart;
+  const user = userEvent.setup();
   beforeEach(() => {
     loadCart = vi.fn();
     axios.get.mockImplementation(async (urlPath) => {
@@ -60,8 +61,37 @@ describe("HomePage Component", () => {
         "Black and Gray Athletic Cotton Socks - 6 Pairs"
       )
     ).toBeInTheDocument();
-    expect(
-      within(productContainers[1]).getByText("Intermediate Size Basketball")
-    ).toBeInTheDocument();
+    const firstAddToCartButton = within(productContainers[0]).getByTestId(
+      "add-to-cart-button"
+    );
+
+    const firstQuantitySelector = within(productContainers[0]).getByTestId(
+      "quantitySelector"
+    );
+
+    await user.selectOptions(firstQuantitySelector, "2");
+    expect(firstQuantitySelector).toHaveValue("2");
+    await user.click(firstAddToCartButton);
+
+    const secondAddToCartButton = within(productContainers[0]).getByTestId(
+      "add-to-cart-button"
+    );
+    const secondQuantitySelector = within(productContainers[0]).getByTestId(
+      "quantitySelector"
+    );
+    
+    await user.selectOptions(secondQuantitySelector, "4");
+    expect(secondQuantitySelector).toHaveValue("4");
+    await user.click(secondAddToCartButton);
+
+    expect(axios.post).toHaveBeenNthCalledWith(1, "/api/cart-items", {
+      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      quantity: 2,
+    });
+    expect(axios.post).toHaveBeenNthCalledWith(2, "/api/cart-items", {
+      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      quantity: 4,
+    });
+    expect(loadCart).toHaveBeenCalledTimes(2);
   });
 });

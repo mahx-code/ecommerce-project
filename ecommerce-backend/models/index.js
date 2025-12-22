@@ -1,48 +1,23 @@
-import { Sequelize } from 'sequelize';
-import sqlJsAsSqlite3 from 'sql.js-as-sqlite3';
-import fs from 'fs';
+import { Sequelize } from "sequelize";
+import pg from "pg"; // Import the postgres driver
 
-const isUsingRDS = process.env.RDS_HOSTNAME && process.env.RDS_USERNAME && process.env.RDS_PASSWORD;
-const dbType = process.env.DB_TYPE || 'mysql';
-const defaultPorts = {
-  mysql: 3306,
-  postgres: 5432,
-};
-const defaultPort = defaultPorts[dbType];
+// We use the DATABASE_URL you will set in the Vercel Dashboard
+const connectionString = process.env.DATABASE_URL;
 
-export let sequelize;
+export const sequelize = new Sequelize(connectionString, {
+  dialect: "postgres",
+  dialectModule: pg, // Tells Sequelize to use the pg driver
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Required for Neon connection
+    },
+  },
+  logging: false,
+});
 
-if (isUsingRDS) {
-  sequelize = new Sequelize({
-    database: process.env.RDS_DB_NAME,
-    username: process.env.RDS_USERNAME,
-    password: process.env.RDS_PASSWORD,
-    host: process.env.RDS_HOSTNAME,
-    port: process.env.RDS_PORT || defaultPort,
-    dialect: dbType,
-    logging: false
-  });
-} else {
-  sequelize = new Sequelize({
-    dialect: 'sqlite',
-    dialectModule: sqlJsAsSqlite3,
-    logging: false
-  });
-
-  // Save database to file after write operations.
-  sequelize.addHook('afterCreate', saveDatabaseToFile);
-  sequelize.addHook('afterDestroy', saveDatabaseToFile);
-  sequelize.addHook('afterUpdate', saveDatabaseToFile);
-  sequelize.addHook('afterSave', saveDatabaseToFile);
-  sequelize.addHook('afterUpsert', saveDatabaseToFile);
-  sequelize.addHook('afterBulkCreate', saveDatabaseToFile);
-  sequelize.addHook('afterBulkDestroy', saveDatabaseToFile);
-  sequelize.addHook('afterBulkUpdate', saveDatabaseToFile);
-}
-
+// We keep this function name so other files don't break,
+// but it doesn't need to do anything anymore because Postgres saves automatically!
 export async function saveDatabaseToFile() {
-  const dbInstance = await sequelize.connectionManager.getConnection();
-  const binaryArray = dbInstance.database.export();
-  const buffer = Buffer.from(binaryArray);
-  fs.writeFileSync('database.sqlite', buffer);
+  return Promise.resolve();
 }

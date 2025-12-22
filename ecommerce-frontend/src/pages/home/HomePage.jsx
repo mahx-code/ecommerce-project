@@ -14,11 +14,15 @@ export default function HomePage({ cart, loadCart }) {
   useEffect(() => {
     const getProductData = async () => {
       if (search) {
-        const response = await axios.get(`/api/products?search=${search}`);
+        const response = await axios.get(
+          `https://ecommerce-project-backend-omega.vercel.app/api/products?search=${search}`
+        );
         setProducts(response.data);
         return;
       } else {
-        const response = await axios.get("/api/products");
+        const response = await axios.get(
+          "https://ecommerce-project-backend-omega.vercel.app/api/products"
+        );
         setProducts(response.data);
       }
     };

@@ -13,7 +13,9 @@ export default function CheckOutPage({ cart, setCart, loadCart }) {
 
   useEffect(() => {
     axios
-      .get("api/delivery-options?expand=estimatedDeliveryTime")
+      .get(
+        "https://ecommerce-project-backend-omega.vercel.appapi/delivery-options?expand=estimatedDeliveryTime"
+      )
       .then((response) => {
         setDeliveryOptions(response.data);
       });

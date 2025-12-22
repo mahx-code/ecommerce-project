@@ -7,10 +7,13 @@ export default function Product({ product, loadCart }) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const addToCart = async () => {
-    await axios.post("/api/cart-items", {
-      productId: product.id,
-      quantity,
-    });
+    await axios.post(
+      "https://ecommerce-project-backend-omega.vercel.app/api/cart-items",
+      {
+        productId: product.id,
+        quantity,
+      }
+    );
     await loadCart();
     setIsAddedToCart(true);
     setTimeout(() => {

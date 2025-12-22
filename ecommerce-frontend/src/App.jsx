@@ -16,7 +16,9 @@ function App() {
   const API_URL = import.meta.env.VITE_API_URL
 
   const loadCart = async () => {
-    const response = await axios.get("api/cart-items?expand=product");
+    const response = await axios.get(
+      "https://ecommerce-project-backend-omega.vercel.app/api/cart-items?expand=product"
+    );
     setCart(response.data);
   };
 

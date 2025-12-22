@@ -34,7 +34,7 @@ export default function CartItemDetails({
                         setIsUpdating(true);
                       } else {
                         await axios.put(
-                          `/api/cart-items/${cartItem.productId}`,
+                          `https://ecommerce-project-backend-omega.vercel.app/api/cart-items/${cartItem.productId}`,
                           {
                             quantity,
                           }

@@ -17,9 +17,8 @@ export default function HomePage({ cart, loadCart }) {
         const response = await axios.get(`/api/products?search=${search}`);
         setProducts(response.data);
         return;
-      }
-      else {
-        const response = await axios.get("api/products");
+      } else {
+        const response = await axios.get("/api/products");
         setProducts(response.data);
       }
     };
@@ -33,7 +32,11 @@ export default function HomePage({ cart, loadCart }) {
       <Header cart={cart} search={search} />
 
       <div className="home-page">
-        <ProductsGrid data-testid="productContainers" products={products} loadCart={loadCart} />
+        <ProductsGrid
+          data-testid="productContainers"
+          products={products}
+          loadCart={loadCart}
+        />
       </div>
     </>
   );

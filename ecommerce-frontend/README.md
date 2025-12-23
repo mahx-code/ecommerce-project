@@ -1,12 +1,35 @@
-# React + Vite
+# 🛒 Ecommerce Web App - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The modern, responsive user interface for the Ecommerce Pro platform. Built with **React** and **Vite**, this frontend provides a seamless shopping experience, connecting directly to our Express-based API.
 
-Currently, two official plugins are available:
+**🚀 [Live Deployment](https://ecommerce-project-tau-gray.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework:** [React.js](https://reactjs.dev/)
+- **Build Tool:** [Vite](https://vitejs.dev/) (High-speed HMR)
+- **Routing:** [React Router](https://reactrouter.com/)
+- **Data Fetching:** [Axios](https://axios-http.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## ✨ Features
+
+- **Dynamic Product Grid:** Real-time fetching and rendering of products from the backend.
+- **Search Functionality:** Filter through the product catalog using the search bar.
+- **Shopping Cart:** Add, remove, and manage items with instant price updates.
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop screens.
+- **API Integration:** Configured with Vercel rewrites to communicate securely with the backend.
+
+---
+
+## ⚙️ Development Setup
+
+### 1. Clone & Install
+```bash
+git clone <your-repo-link>
+cd ecommerce-frontend
+npm install

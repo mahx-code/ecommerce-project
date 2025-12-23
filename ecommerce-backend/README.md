@@ -1,17 +1,42 @@
-## Intro to the Project
-This is the backend for the [ecommerce-project](https://github.com/SuperSimpleDev/ecommerce-project).
-- 95% of the code was generated with AI.
+# 🛒 Ecommerce Web App - Backend API
 
-## Video Tutorials
-**Part 1 - Create the Backend:** https://youtu.be/vBprybSmJs8
+A high-performance, serverless REST API designed to power modern e-commerce experiences. This backend manages product catalogs, inventory, and order processing using a direct-driver PostgreSQL implementation for maximum efficiency.
 
-## Set up this backend
-1. Make sure you have NodeJS installed (version 22+). If not, [click here to install](https://nodejs.org/).
-2. Download this code by clicking the green `Code` button (in the top-right) > Click `Download Zip`.
-3. Unzip the code. On Windows, right-click the zip file > `Extract All`. On Mac, double-click the zip file.
-4. Open this code in VSCode.
-5. At the top menu of VSCode, click `Terminal` > `New Terminal`.
-6. In the Terminal, run `npm install`, and run `npm run dev`.
+**🚀 Live API Endpoint:** [https://ecommerce-project-backend-omega.vercel.app/api/products](https://ecommerce-project-backend-omega.vercel.app/api/products)
 
-## Troubleshooting
-If you run into issues, see the [troubleshooting steps](troubleshooting.md).
+---
+
+## 🛠️ Technical Architecture
+
+This project has been migrated from a local file-based system (SQLite) to a robust, cloud-native infrastructure to support scalability and high availability.
+
+### Tech Stack
+- **Runtime:** [Node.js](https://nodejs.org/) (v22+)
+- **Server Framework:** [Express.js](https://expressjs.com/)
+- **Database:** [PostgreSQL](https://www.postgresql.org/) via **Neon.tech** (Serverless Postgres)
+- **Database Driver:** [node-postgres (pg)](https://node-postgres.com/)
+- **Cloud Hosting:** [Vercel](https://vercel.com/) (Serverless Functions)
+
+---
+
+## ✨ Key Features
+
+- **Relational Data Modeling:** Structured SQL schema for Products, Cart Items, and Orders.
+- **Optimized SQL Queries:** Uses the `pg` library to execute raw SQL, providing better performance and granular control over database interactions.
+- **Serverless Optimized:** Configured specifically for Vercel's serverless environment, utilizing connection pooling for efficient resource management.
+- **Automated Data Seeding:** Integrated logic to hydrate the database with default product data upon the first connection.
+- **Secure Communication:** SSL-encrypted database connections and CORS-enabled policies for frontend security.
+
+---
+
+## ⚙️ Local Development
+
+### Prerequisites
+- Node.js (Version 22 or higher)
+- A Neon.tech account (or a local PostgreSQL instance)
+
+### Setup Instructions
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-link>
+   cd ecommerce-backend
